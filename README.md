@@ -17,9 +17,9 @@ Tablas originales distribuidas por la justicia electoral, tal cual se pueden des
 Tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
 
 * mesas
+* categorias
 * listas
 * agrupaciones
-* telegramas
 * votos
 
 ### Funciones
@@ -35,3 +35,7 @@ Como cualquier otro paquete mantenido en github.com, el proceso es relativamente
 una vez instalada este paquete, simplemente podremos instalar `paso2019` directamente desde el código fuente del repositorio:
 
     devtools::install_github("paso2019")
+
+## Requerimientos
+
+Ninguno, salvo `devtools` para poder instalarlo, son datos, y eventualmente alguna que otra función que en principio intentaré que no requiera ningún paquete extra. 
