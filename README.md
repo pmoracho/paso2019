@@ -18,12 +18,13 @@ Requerimiento de memoria total: **512.7 Mb**
 
 Tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
 
-* agrupaciones (22.4 kb)
+* agrupaciones (13.8 kb)
 * categorias (49.4 kb)
 * circuitos (741.5 Kb)
 * distritos (4.3 kb)
 * listas (261.3 kb)
 * mesas (8.8 mb)
+* meta_agrupaciones 10 kb)
 * secciones (67.7 kb)
 * votos (83.9 MB)
 
@@ -38,11 +39,12 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
       left_join(listas, by = "id_lista") %>% 
       left_join(agrupaciones, by = "id_agrupacion") %>% 
       left_join(categorias, by = "id_categoria") %>% 
+      left_join(meta_agrupaciones, by = "id_meta_agrupacion") %>% 
       filter(id_categoria == 137) %>% 
-      group_by(nombre_agrupacion, votos_totales) %>% 
+      group_by(nombre_meta_agrupacion, votos_totales) %>% 
       summarise(votos = sum(votos)) %>% 
       mutate(porcentaje = votos / votos_totales) %>% 
-      select(nombre_agrupacion, votos, porcentaje ) %>% 
+      select(nombre_meta_agrupacion, votos, porcentaje ) %>% 
       arrange(-votos)
       
     # A tibble: 10 x 3
