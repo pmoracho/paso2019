@@ -40,7 +40,7 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
       left_join(agrupaciones, by = "id_agrupacion") %>% 
       left_join(categorias, by = "id_categoria") %>% 
       left_join(meta_agrupaciones, by = "id_meta_agrupacion") %>% 
-      filter(id_categoria == 137) %>% 
+      filter(nombre_categoria == "Presidente y Vicepresidente de la República") %>% 
       group_by(nombre_meta_agrupacion, votos_totales) %>% 
       summarise(votos = sum(votos)) %>% 
       mutate(porcentaje = votos / votos_totales) %>% 
