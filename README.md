@@ -14,10 +14,24 @@ Tablas originales distribuidas por la justicia electoral, tal cual se pueden des
 * mesas_totales_lista
 * mesas_totales_agrp_politica
 
-Tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usaralas con esta información en mente.
+Tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
 
 * mesas
 * listas
 * agrupaciones
 * telegramas
 * votos
+
+### Funciones
+
+* **get_telegrama_url**: Para obtener la url de la imagen digitalizada del telegrama
+
+## Instalación
+
+Como cualquier otro paquete mantenido en github.com, el proceso es relativamente sencillo. En primer lugar necesitaremos `devtools`:
+
+    install.packages("devtools")
+
+una vez instalada este paquete, simplemente podremos instalar `paso2019` directamente desde el código fuente del repositorio:
+
+    devtools::install_github("paso2019")
