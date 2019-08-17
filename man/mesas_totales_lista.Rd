@@ -3,10 +3,13 @@
 \docType{data}
 \name{mesas_totales_lista}
 \alias{mesas_totales_lista}
-\title{Postulaciones a las "Paso 2019"}
-\format{Un data frame con 1442 filas y 6 variables:
+\title{Votos por mesa y lista
+(ESTRUCTURA ORIGINAL)
+Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
+derivado del archivo original mesas_totales_lista.dsv}
+\format{Un data frame con 3665201 filas y 8 variables:
 \describe{
-  \item{CODIGO_DISTRITO}{Código de distrito}
+  \item{CODIGO_DISTRITO}{Código de distrito}↕
   \item{CODIGO_SECCION}{Código de sección electoral}
   \item{CODIGO_CIRCUITO}{Código de circuito}
   \item{CODIGO_MESA}{Código de mesa}
@@ -21,6 +24,8 @@
 mesas_totales_lista
 }
 \description{
+Votos por mesa y lista
+(ESTRUCTURA ORIGINAL)
 Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
 derivado del archivo original mesas_totales_lista.dsv
 }

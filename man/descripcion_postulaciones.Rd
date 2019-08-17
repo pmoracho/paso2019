@@ -3,7 +3,10 @@
 \docType{data}
 \name{descripcion_postulaciones}
 \alias{descripcion_postulaciones}
-\title{Postulaciones a las "Paso 2019"}
+\title{Postulaciones a las "Paso 2019"
+(ESTRUCTURA ORIGINAL)
+Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
+derivado del archivo original descripcion_postulaciones.dsv}
 \format{Un data frame con 1442 filas y 6 variables:
 \describe{
   \item{CODIGO_CATEGORIA}{Código de categoría del voto, ej "Diputados Ciudad Autónoma de Buenos Aires"}
@@ -18,6 +21,8 @@
 descripcion_postulaciones
 }
 \description{
+Postulaciones a las "Paso 2019"
+(ESTRUCTURA ORIGINAL)
 Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
 derivado del archivo original descripcion_postulaciones.dsv
 }
