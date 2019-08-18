@@ -7,12 +7,11 @@
 \title{Agrupaciones que participaron en las Paso 2019}
 \format{Un data frame con 182 filas y 2 variables:
 \describe{
-  \item{CODIGO_AGRUPACION}{Código de la agrupación política}
-  \item{NOMBRE_AGRUPACION}{Nombre de la agrupación política}
+  \item{id_agrupacion}{id numérico generado}
+  \item{id_meta_agrupacion}{id a la meta agrupación o partido}
+  \item{codigo_agrupacion}{código de la agrupación tal como se informa}
 }}
 \source{
-\url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-
 \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
 }
 \usage{

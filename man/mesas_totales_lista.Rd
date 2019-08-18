@@ -3,10 +3,7 @@
 \docType{data}
 \name{mesas_totales_lista}
 \alias{mesas_totales_lista}
-\title{Votos por mesa y lista
-(ESTRUCTURA ORIGINAL)
-Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
-derivado del archivo original mesas_totales_lista.dsv}
+\title{Votos por mesa y lista}
 \format{Un data frame con 3665201 filas y 8 variables:
 \describe{
   \item{CODIGO_DISTRITO}{Código de distrito}↕
@@ -24,9 +21,10 @@ derivado del archivo original mesas_totales_lista.dsv}
 mesas_totales_lista
 }
 \description{
-Votos por mesa y lista
-(ESTRUCTURA ORIGINAL)
 Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
 derivado del archivo original mesas_totales_lista.dsv
+}
+\details{
+(ESTRUCTURA ORIGINAL)
 }
 \keyword{datasets}

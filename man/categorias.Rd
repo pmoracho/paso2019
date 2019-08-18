@@ -4,7 +4,6 @@
 \name{categorias}
 \alias{categorias}
 \title{categorias a las que se votó en las Paso 2019
-(MODELO NUEVO)
 Un dataset conteniendo el detalle de todas las categorias de esta elección,
 deriva de descripcion_postulaciones.dsv}
 \format{Un data frame con 1442 filas y 6 variables:
@@ -21,9 +20,6 @@ deriva de descripcion_postulaciones.dsv}
 categorias
 }
 \description{
-categorias a las que se votó en las Paso 2019
 (MODELO NUEVO)
-Un dataset conteniendo el detalle de todas las categorias de esta elección,
-deriva de descripcion_postulaciones.dsv
 }
 \keyword{datasets}

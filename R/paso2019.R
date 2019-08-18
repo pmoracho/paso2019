@@ -1,7 +1,9 @@
 #' Regiones electorales Argentinas
-#' (ESTRUCTURA ORIGINAL)
+#'
 #' Un dataset conteniendo los nombres de las regiones electorales,
 #' derivado del archivo original descripcion_regiones.dsv
+#'
+#' (ESTRUCTURA ORIGINAL)
 #'
 #' @format Un data frame con 6298 filas y 2 variables:
 #' \describe{
@@ -13,9 +15,11 @@
 "descripcion_regiones"
 
 #' Postulaciones a las "Paso 2019"
-#' (ESTRUCTURA ORIGINAL)
+#'
 #' Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
 #' derivado del archivo original descripcion_postulaciones.dsv
+#'
+#' (ESTRUCTURA ORIGINAL)
 #'
 #' @format Un data frame con 1442 filas y 6 variables:
 #' \describe{
@@ -29,9 +33,11 @@
 "descripcion_postulaciones"
 
 #' Votos por mesa y lista
-#' (ESTRUCTURA ORIGINAL)
+#'
 #' Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
 #' derivado del archivo original mesas_totales_lista.dsv
+#'
+#' (ESTRUCTURA ORIGINAL)
 #'
 #' @format Un data frame con 3665201 filas y 8 variables:
 #' \describe{
@@ -47,21 +53,25 @@
 #' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
 "mesas_totales_lista"
 
-#' categorias a las que se votó en las Paso 2019
-#' (MODELO NUEVO)
-#' Un dataset conteniendo el detalle de todas las categorias de esta elección,
-#' deriva de descripcion_postulaciones.dsv
+#' meta_agrupaciones
 #'
-#' @format Un data frame con 1442 filas y 6 variables:
+#' Un dataset conteniendo el detalle de todos los partidos. En las tablas originales
+#' existen agrupaciones, las cuales se corresponden con los partidos, pero tienen
+#' distinto código dependiendo de la categoria  (Presidente, Gobernador, Senadores, etc)
+#' y del distrito. Por lo que agregamos el concepto de meta_agrupacion que
+#' efectivamete representa al partido.
+#'
+#' deriva de: descripcion_postulaciones.dsv
+#'
+#' (MODELO NUEVO)
+#'
+#' @format Un data frame con 101 filas y 2 variables:
 #' \describe{
-#'   \item{id_categoria}{id numérico generado}
-#'   \item{codigo_categoria}{Código del categoría del voto}
-#'   \item{nombre_categoria}{Nombre de la categoría}
-#'   \item{votos_totales}{Sumatoria de todos los votos en esta categoría}
+#'   \item{id_meta_agrupacion}{id numérico generado}
+#'   \item{nombre_meta_agrupacion}{Nombre del partido}
 #' }
 #'
-#' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-"categorias"
+"meta_agrupaciones"
 
 #' Agrupaciones que participaron en las Paso 2019
 #'
@@ -70,24 +80,64 @@
 #'
 #' @format Un data frame con 182 filas y 2 variables:
 #' \describe{
-#'   \item{CODIGO_AGRUPACION}{Código de la agrupación política}
-#'   \item{NOMBRE_AGRUPACION}{Nombre de la agrupación política}
+#'   \item{id_agrupacion}{id numérico generado}
+#'   \item{id_meta_agrupacion}{id a la meta agrupación o partido}
+#'   \item{codigo_agrupacion}{código de la agrupación tal como se informa}
 #' }
 #'
-#' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
 "agrupaciones"
 
+#' Categorias a las que se votó en las Paso 2019
+#'
+#' Un dataset conteniendo el detalle de todas las categorias de esta elección,
+#' deriva de descripcion_postulaciones.dsv. La categoría representa lo que
+#' se está votando.
+#'
+#' (MODELO NUEVO)
+#'
+#' @format Un data frame con 204 filas y 4 variables:
+#' \describe{
+#'   \item{id_categoria}{id numérico generado}
+#'   \item{codigo_categoria}{Código del categoría del voto}
+#'   \item{nombre_categoria}{Nombre de la categoría}
+#'   \item{votos_totales}{Sumatoria de todos los votos en esta categoría}
+#' }
+#'
+"categorias"
+
+#' Listas a las que se votó en las Paso 2019
+#'
+#' Un dataset conteniendo el detalle de todas las listas de esta elección,
+#' deriva de descripcion_postulaciones.dsv. Un Partido puede tener múltiples
+#' listas, las PASO justamente buscan definir estas.
+#'
+#' (MODELO NUEVO)
+#'
+#' @format Un data frame con 1442 filas y 6 variables:
+#' \describe{
+#'   \item{id_lista}{id numérico generado}
+#'   \item{id_agrupación}{id a la agrupación de la lista}
+#'   \item{código_lista}{código tal como aparece en los archivos originales}
+#'   \item{nombre_lista}{nombre de la lista}
+#' }
+#'
+"listas"
 
 #' Mesas totales en las Paso 2019
 #'
 #' Un dataset conteniendo el detalle de todas las mesas de votación de esta elección,
-#' deriva de descripcion_postulaciones.dsv
+#' deriva de mesas_totales_lista.dsv
 #'
-#' @format Un data frame con 100142 filas y 2 variables:
+#' @format Un data frame con 100,148 filas y 2 variables:
 #' \describe{
-#'   \item{CODIGO_MESA}{Código de mesa}
-#'   \item{ESCRUTADA}{TRUE/FALSE dependiendo si fue o no escrutada}
+#'   \item{id_mesa}{id numérico generado}
+#'   \item{id_distrito}{id del distrito de la mesa (provincia)}
+#'   \item{id_seccion}{id del la sección electoral}
+#'   \item{id_circuito}{id del circuito}
+#'   \item{codigo_mesa}{código de la mesa tal como parece en los datos originales}
+#'   \item{escrutada}{la mesa fue escrutada}
 #' }
 #'
-#' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-"agrupaciones"
+"mesas"
+
+glimpse(mesas)
