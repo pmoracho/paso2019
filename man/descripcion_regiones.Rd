@@ -4,7 +4,7 @@
 \name{descripcion_regiones}
 \alias{descripcion_regiones}
 \title{Regiones electorales Argentinas}
-\format{Un data frame con 6298 filas y 2 variables:
+\format{Un data frame con 6,298 filas y 2 variables:
 \describe{
   \item{CODIGO_REGION}{Código de la región}
   \item{NOMBRE_REGION}{Nombre de la región}
@@ -17,7 +17,10 @@ descripcion_regiones
 }
 \description{
 Un dataset conteniendo los nombres de las regiones electorales,
-derivado del archivo original descripcion_regiones.dsv
+**tal como están definidas  en el archivo original descripcion_regiones.dsv**.
+En un mismo archivo están los 3 niveles: `distrito`, `seccion` y
+`circuito` el `CODIGO_REGION` es particular para cada una de
+estas entidades.
 }
 \details{
 (ESTRUCTURA ORIGINAL)

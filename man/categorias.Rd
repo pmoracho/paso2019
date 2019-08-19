@@ -3,23 +3,23 @@
 \docType{data}
 \name{categorias}
 \alias{categorias}
-\title{categorias a las que se votó en las Paso 2019
-Un dataset conteniendo el detalle de todas las categorias de esta elección,
-deriva de descripcion_postulaciones.dsv}
-\format{Un data frame con 1442 filas y 6 variables:
+\title{Categorias a las que se votó}
+\format{Un data frame con 204 filas y 4 variables:
 \describe{
   \item{id_categoria}{id numérico generado}
   \item{codigo_categoria}{Código del categoría del voto}
   \item{nombre_categoria}{Nombre de la categoría}
   \item{votos_totales}{Sumatoria de todos los votos en esta categoría}
 }}
-\source{
-\url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-}
 \usage{
 categorias
 }
 \description{
+Un dataset conteniendo el detalle de todas las categorias de esta elección,
+deriva de descripcion_postulaciones.dsv. La categoría representa lo que
+se está votando.
+}
+\details{
 (MODELO NUEVO)
 }
 \keyword{datasets}

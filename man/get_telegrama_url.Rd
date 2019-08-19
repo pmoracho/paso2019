@@ -2,23 +2,24 @@
 % Please edit documentation in R/get_telegrama_url.R
 \name{get_telegrama_url}
 \alias{get_telegrama_url}
-\title{Get the url path to the "telegram" of a particular "mesa"}
+\title{Obtener la url de la imagen digitalizada del telegrama}
 \usage{
-get_telegrama_url(mesa,
+get_telegrama_url(codigo_mesa,
   base_url = "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages")
 }
 \arguments{
-\item{mesa}{The "mesa" code.}
+\item{codigo_mesa}{El código de mesa}
 
-\item{base_url}{A base path, default: "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages".}
+\item{base_url}{El path base, default: "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages".}
 }
 \value{
 A url.
 }
 \description{
-Get the url path to the "telegram" of a particular "mesa"
+Obtener la url de la imagen digitalizada del telegrama
 }
 \examples{
+
 get_telegrama_url("0100100001X")
 get_telegrama_url("0100100001X", base_url = "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages")
 

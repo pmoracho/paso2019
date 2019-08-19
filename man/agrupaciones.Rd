@@ -3,27 +3,18 @@
 \docType{data}
 \name{agrupaciones}
 \alias{agrupaciones}
-\alias{agrupaciones}
-\title{Agrupaciones que participaron en las Paso 2019}
+\title{Agrupaciones que participaron}
 \format{Un data frame con 182 filas y 2 variables:
 \describe{
   \item{id_agrupacion}{id numérico generado}
   \item{id_meta_agrupacion}{id a la meta agrupación o partido}
   \item{codigo_agrupacion}{código de la agrupación tal como se informa}
 }}
-\source{
-\url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-}
 \usage{
-agrupaciones
-
 agrupaciones
 }
 \description{
 Un dataset conteniendo el detalle de todas las agrupaciones de esta elección,
-deriva de descripcion_postulaciones.dsv
-
-Un dataset conteniendo el detalle de todas las mesas de votación de esta elección,
 deriva de descripcion_postulaciones.dsv
 }
 \keyword{datasets}

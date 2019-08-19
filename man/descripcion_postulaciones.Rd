@@ -3,13 +3,15 @@
 \docType{data}
 \name{descripcion_postulaciones}
 \alias{descripcion_postulaciones}
-\title{Postulaciones a las "Paso 2019"}
-\format{Un data frame con 1442 filas y 6 variables:
+\title{Postulaciones (categorías y agrupaciones)}
+\format{Un data frame con 1,442 filas y 6 variables
 \describe{
   \item{CODIGO_CATEGORIA}{Código de categoría del voto, ej "Diputados Ciudad Autónoma de Buenos Aires"}
   \item{NOMBRE_CATEGORIA}{Nombre de la categoría}
   \item{CODIGO_AGRUPACION}{Código de la agrupación política}
   \item{NOMBRE_AGRUPACION}{Nombre de la agrupación política}
+  \item{CODIGO_LISTA}{Código de la lista}
+  \item{NOMBRE_LISTA}{Nombre de la lista}
 }}
 \source{
 \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
@@ -18,8 +20,9 @@
 descripcion_postulaciones
 }
 \description{
-Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
-derivado del archivo original descripcion_postulaciones.dsv
+Un dataset conteniendo el detalle de todas las agrupaciones que
+se han presentado, derivado del archivo original
+descripcion_postulaciones.dsv
 }
 \details{
 (ESTRUCTURA ORIGINAL)

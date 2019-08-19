@@ -2,7 +2,7 @@
 #'
 #' @param base_url El path base, default: "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages".
 #' @param codigo_mesa El código de mesa
-#' @return A url.
+#' @return una url.
 #'
 #' @examples
 #'
