@@ -15,7 +15,7 @@
 "descripcion_regiones"
 
 #' Postulaciones a las "Paso 2019"
-#'
+#'Carpeta nueva
 #' Un dataset conteniendo el detalle de todas las agrupaciones que se han presentado,
 #' derivado del archivo original descripcion_postulaciones.dsv
 #'
@@ -139,5 +139,3 @@
 #' }
 #'
 "mesas"
-
-glimpse(mesas)
