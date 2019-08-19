@@ -6,7 +6,9 @@ Paquete de datos con los resultados del escrutinio de las "Paso 2019" de Argenti
 
 ### Datos
 
-Tablas originales distribuidas por la justicia electoral, tal cual se pueden descargar desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin niguna transformación, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son númericas. Estas tablas no mutaran en el futuro. 
+#### Modelo original
+
+El modelo original representa las tablas originales distribuidas por la justicia electoral, tal cual se pueden acceder desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin niguna transformación, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son númericas. Estas tablas no mutaran en el futuro. 
 
 * descripcion_postulaciones (355.9Kb)
 * descripcion_regiones (798.1 kb)
@@ -16,7 +18,11 @@ Tablas originales distribuidas por la justicia electoral, tal cual se pueden des
 
 Requerimiento de memoria total: **512.7 Mb**
 
-Tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
+#### Modelo nuevo
+
+![Modelo nuevo](doc/img/modelo_paso2019.png)
+
+Son tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
 
 * agrupaciones (13.8 kb)
 * categorias (49.4 kb)
@@ -30,7 +36,7 @@ Tablas derivadas de las anteriores. La idea es transformar los datos en tablas q
 
 Requerimiento de memoria total: **94.5 Mb**
 
-Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para reducir los requrimientos de memoria. Claro, que las consultas requieren ir agregando las relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
+Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para reducir los requrimientos de memoria. Claro, que las consultas requieren ir agregando varias relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
 
     library("tidyverse")
     library("paso2019")
@@ -61,6 +67,7 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
      8 FRENTE PATRIOTA                                   58575    0.00248
      9 MOVIMIENTO DE ACCION VECINAL                      36324    0.00154
     10 PARTIDO AUTONOMISTA                               32562    0.00138
+
 
 ### Funciones
 
