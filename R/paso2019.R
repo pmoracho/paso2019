@@ -37,27 +37,26 @@
 #' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
 "descripcion_postulaciones"
 
-#' Votos por mesa y lista
+#' Mesas
 #'
-#' Un dataset conteniendo el detalle de los totales de votos por mesa, abierto hasta la lista,
-#' derivado del archivo original mesas_totales_lista.dsv
+#' Un dataset conteniendo el detalle de mesas derivado del archivo
+#' original mesas_totales.dsv
 #'
 #' (ESTRUCTURA ORIGINAL)
 #'
-#' @format Un data frame con 3,665,201 filas y 8 variables:
+#' @format Un data frame con 1,719,9941 filas y 7 variables:
 #' \describe{
 #'   \item{CODIGO_DISTRITO}{Código de distrito}
 #'   \item{CODIGO_SECCION}{Código de sección electoral}
 #'   \item{CODIGO_CIRCUITO}{Código de circuito}
 #'   \item{CODIGO_MESA}{Código de mesa}
 #'   \item{CODIGO_CATEGORIA}{Código de categoría de la elección}
-#'   \item{CODIGO_AGRUPACION}{Código de agrupación}
-#'   \item{CODIGO_LISTA}{Código de la lista}
-#'   \item{VOTOS_LISTA}{Cantidad de votos totales en la mesa}
+#'   \item{CONTADOR}{Desconocido}
+#'   \item{VALOR}{Desconocido}
 #' }
 #'
 #' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-"mesas_totales_lista"
+"mesas_totales"
 
 
 #' Votos por agrupación
