@@ -188,3 +188,61 @@
 #' }
 #'
 "mesas"
+
+#' Circuitos electorales
+#'
+#' Un dataset conteniendo el detalle de los circuitos electorales,
+#' deriva de mesas_totales_lista.dsv
+#'
+#' @format Un data frame con 5,649 filas y 3 variables:
+#' \describe{
+#'   \item{id_circuito}{un id numérico generado para el circuito}
+#'   \item{codigo_circuito}{código del circuito de la mesa}
+#'   \item{nombre_circuito}{nombre del circuito}
+#' }
+#'
+"circuitos"
+
+#' Distritos electorales (Provincias)
+#'
+#' Un dataset conteniendo el detalle de los distritos electorales,
+#' deriva de mesas_totales_lista.dsv
+#'
+#' @format Un data frame con 24 filas y 3 variables:
+#' \describe{
+#'   \item{id_distrito}{un id numérico generado para el distrito}
+#'   \item{codigo_distrito}{código de la provincia}
+#'   \item{nombre_distrito}{Nombre de la provincia}
+#' }
+#'
+"distritos"
+
+#' Secciones electorales (municipios)
+#'
+#' Un dataset conteniendo el detalle de las secciones electorales,
+#' deriva de mesas_totales_lista.dsv
+#'
+#' @format Un data frame con 525 filas y 3 variables:
+#' \describe{
+#'   \item{id_seccion}{un id numérico generado para la sección}
+#'   \item{codigo_seccion}{código de la sección}
+#'   \item{nombre_seccion}{Nombre de la sección}
+#' }
+#'
+"secciones"
+
+#' Votos
+#'
+#' Un dataset conteniendo el detalle de los votos totales,
+#' deriva de mesas_totales_lista.dsv
+#'
+#' @format Un data frame con 3,665,201 filas y 5 variables:
+#' \describe{
+#'   \item{id_voto}{un id numérico generado para el conteo de votos}
+#'   \item{id_mesa}{id de la mesa}
+#'   \item{id_categoria}{id de la categoría de los votos}
+#'   \item{id_lista}{id de la lista}
+#'   \item{votos}{Votos totales}
+#' }
+#'
+"votos"
