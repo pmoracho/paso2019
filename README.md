@@ -1,3 +1,7 @@
+<!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/pmoracho/paso2019.svg?branch=master)](https://travis-ci.org/pmoracho/paso2019)
+  <!-- badges: end -->
+
 # paso2019
 
 Paquete de datos con los resultados del escrutinio de las "Paso 2019" de Argentina.
@@ -87,6 +91,3 @@ una vez instalada este paquete, simplemente podremos instalar `paso2019` directa
 
 Ninguno, salvo `devtools` para poder instalarlo, son datos, y eventualmente alguna que otra función que en principio intentaré que no requiera ningún paquete extra. 
 
-<!-- badges: start -->
-  [![Travis build status](https://travis-ci.org/pmoracho/paso2019.svg?branch=master)](https://travis-ci.org/pmoracho/paso2019)
-  <!-- badges: end -->
