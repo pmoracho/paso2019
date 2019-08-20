@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-\ext-data
-\doc
+ext-data
+doc
+^\.travis\.yml$

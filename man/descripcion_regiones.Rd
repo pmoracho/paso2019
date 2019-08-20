@@ -17,9 +17,9 @@ descripcion_regiones
 }
 \description{
 Un dataset conteniendo los nombres de las regiones electorales,
-**tal como están definidas  en el archivo original descripcion_regiones.dsv**.
-En un mismo archivo están los 3 niveles: `distrito`, `seccion` y
-`circuito` el `CODIGO_REGION` es particular para cada una de
+tal como están definidas  en el archivo original descripcion_regiones.dsv.
+En un mismo archivo están los 3 niveles: distrito, seccion y
+circuito el CODIGO_REGION es particular para cada una de
 estas entidades.
 }
 \details{

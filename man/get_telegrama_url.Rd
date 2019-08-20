@@ -13,14 +13,17 @@ get_telegrama_url(codigo_mesa,
 \item{base_url}{El path base, default: "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages".}
 }
 \value{
-A url.
+una url.
 }
 \description{
 Obtener la url de la imagen digitalizada del telegrama
 }
 \examples{
 
+library("paso2019")
+
 get_telegrama_url("0100100001X")
-get_telegrama_url("0100100001X", base_url = "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages")
+get_telegrama_url(codigo_mesa = "0100100001X",
+                            base_url = "https://www.una_pagina.com")
 
 }

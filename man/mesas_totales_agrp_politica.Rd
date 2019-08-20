@@ -4,7 +4,7 @@
 \name{mesas_totales_agrp_politica}
 \alias{mesas_totales_agrp_politica}
 \title{Votos por agrupación}
-\format{Un data frame con 3,665,201 filas y 8 variables:
+\format{Un data frame con 3,665,201 filas y 7 variables:
 \describe{
   \item{CODIGO_DISTRITO}{Código de distrito}
   \item{CODIGO_SECCION}{Código de sección electoral}
@@ -12,6 +12,7 @@
   \item{CODIGO_MESA}{Código de mesa}
   \item{CODIGO_CATEGORIA}{Código de categoría de la elección}
   \item{CODIGO_AGRUPACION}{Código de agrupación}
+  \item{VOTOS_AGRUPACION}{Cantidad de votos por agrupación}
 }}
 \source{
 \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}

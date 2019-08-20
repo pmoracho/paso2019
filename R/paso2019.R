@@ -66,6 +66,27 @@
 #'
 #' (ESTRUCTURA ORIGINAL)
 #'
+#' @format Un data frame con 3,665,201 filas y 7 variables:
+#' \describe{
+#'   \item{CODIGO_DISTRITO}{Código de distrito}
+#'   \item{CODIGO_SECCION}{Código de sección electoral}
+#'   \item{CODIGO_CIRCUITO}{Código de circuito}
+#'   \item{CODIGO_MESA}{Código de mesa}
+#'   \item{CODIGO_CATEGORIA}{Código de categoría de la elección}
+#'   \item{CODIGO_AGRUPACION}{Código de agrupación}
+#'   \item{VOTOS_AGRUPACION}{Cantidad de votos por agrupación}
+#' }
+#'
+#' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
+"mesas_totales_agrp_politica"
+
+#' Votos por agrupación y  lista
+#'
+#' Un dataset conteniendo el detalle de los totales de votos por mesa, abierto hasta la lista,
+#' derivado del archivo original mesas_totales_lista.dsv
+#'
+#' (ESTRUCTURA ORIGINAL)
+#'
 #' @format Un data frame con 3,665,201 filas y 8 variables:
 #' \describe{
 #'   \item{CODIGO_DISTRITO}{Código de distrito}
@@ -74,11 +95,12 @@
 #'   \item{CODIGO_MESA}{Código de mesa}
 #'   \item{CODIGO_CATEGORIA}{Código de categoría de la elección}
 #'   \item{CODIGO_AGRUPACION}{Código de agrupación}
+#'   \item{CODIGO_LISTA}{Código de lista}
+#'   \item{VOTOS_LISTA}{Cantidad de votos por lista}
 #' }
 #'
 #' @source \url{http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip}
-"mesas_totales_agrp_politica"
-
+"mesas_totales_lista"
 
 #' meta_agrupaciones
 #'
