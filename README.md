@@ -4,17 +4,27 @@
 
 # paso2019
 
-Paquete de datos con los resultados del escrutinio de las "Paso 2019" de Argentina.
+Paquete de datos con los resultados del escrutinio de las "Paso 2019" de Argentina, tal cual publica la **Dirección Nacional Electoral (DINE)**.
 
 ## Contenido
 
 ### Datos
 
+Los datos están actualizados al `12/08/2019 05:03:06 (-03:00 UTC)` según informa la **DINE**
+
+**Importante**:
+
+Hay algunas inconsistencias en los datos que en algún momento puede llamar la atención. Por empezar hay una inconsistencia entre las tres tablas de mesas, descargadas del sitio oficial de los resultados. Podemos verificarlo así:
+
+* Dentro de las tablas originales, pudimos constatar, que `mesas_totales` tiene 100,142  mesas, 6 mesas menos que el resto de las tablas (`mesas_totales_lista` y `mesas_totales_agrp_politica`), esto no tiene mucho impacto, por que en el modelo de datos nuevo, usamos `mesas_totales_lista` para armar prácticamente todos los datos.
+
+* La otra inconsistencia notable, es entre esta información y la que se publica en la página web: https://resultados.gob.ar/, la mesas escrutadas según esta página son 100,156 mesas, los datos descargados, indican en el mejor de los casos 100,148 mesas, es decir 8 mesas menos.
+
 #### Modelo original
 
-El modelo original representa las tablas originales distribuidas por la justicia electoral, tal cual se pueden acceder desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin niguna transformación, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son númericas. Estas tablas no mutaran en el futuro. 
+El modelo original representa las tablas originales distribuidas por la justicia electoral, tal cual se pueden acceder desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin ninguna transformación, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son numéricas. Estas tablas no mutaran en el futuro. 
 
-* descripcion_postulaciones (355.9Kb)
+* descripcion_postulaciones (355.9 Kb)
 * descripcion_regiones (798.1 kb)
 * mesas_totales (98.4 mb)
 * mesas_totales_lista (230.4 mb)
@@ -34,13 +44,13 @@ Son tablas derivadas de las anteriores. La idea es transformar los datos en tabl
 * distritos (4.3 kb)
 * listas (261.3 kb)
 * mesas (8.8 mb)
-* meta_agrupaciones 10 kb)
+* meta_agrupaciones (10 kb)
 * secciones (67.7 kb)
 * votos (83.9 MB)
 
 Requerimiento de memoria total: **94.5 Mb**
 
-Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para reducir los requrimientos de memoria. Claro, que las consultas requieren ir agregando varias relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
+Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para cada tabla, y así reducir los requerimientos de memoria. Claro, que las consultas requieren ir agregando varias relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
 
     library("tidyverse")
     library("paso2019")
@@ -75,7 +85,7 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
 
 ### Funciones
 
-* **get_telegrama_url**: Para obtener la url de la imagen digitalizada del telegrama
+* **get_telegrama_url**: Para generar la url de la imagen digitalizada del telegrama
 
 ## Instalación
 
@@ -89,5 +99,5 @@ una vez instalada este paquete, simplemente podremos instalar `paso2019` directa
 
 ## Requerimientos
 
-Ninguno, salvo `devtools` para poder instalarlo, son datos, y eventualmente alguna que otra función que en principio intentaré que no requiera ningún paquete extra. 
+Ninguno en particular, salvo `devtools` para poder instalar este paquete, son datos, y eventualmente alguna que otra función que en principio intentaré que no requiera ningún paquete extra. 
 
