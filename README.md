@@ -14,7 +14,7 @@ Los datos están actualizados al `12/08/2019 05:03:06 (-03:00 UTC)` según infor
 
 **Importante**:
 
-Hay algunas inconsistencias en los datos que en algún momento puede llamar la atención. Por empezar hay una inconsistencia entre las tres tablas de mesas, descargadas del sitio oficial de los resultados. Podemos verificarlo así:
+Hay algunas inconsistencias en los datos que en algún momento puede llamar la atención. Por empezar hay una inconsistencia entre las tres tablas de mesas descargadas del sitio oficial de los resultados:
 
 * Dentro de las tablas originales, pudimos constatar, que `mesas_totales` tiene 100,142  mesas, 6 mesas menos que el resto de las tablas (`mesas_totales_lista` y `mesas_totales_agrp_politica`), esto no tiene mucho impacto, por que en el modelo de datos nuevo, usamos `mesas_totales_lista` para armar prácticamente todos los datos.
 
@@ -96,7 +96,7 @@ Como cualquier otro paquete mantenido en github.com, el proceso es relativamente
 
 una vez instalada este paquete, simplemente podremos instalar `paso2019` directamente desde el código fuente del repositorio:
 
-    devtools::install_github("paso2019")
+    devtools::install_github("pmoracho/paso2019")
 
 ## Requerimientos
 
