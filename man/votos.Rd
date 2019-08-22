@@ -4,7 +4,7 @@
 \name{votos}
 \alias{votos}
 \title{Votos}
-\format{Un data frame con 3,665,201 filas y 5 variables:
+\format{Un data frame con 4,021,306 filas y 5 variables:
 \describe{
   \item{id_voto}{un id numérico generado para el conteo de votos}
   \item{id_mesa}{id de la mesa}

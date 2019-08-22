@@ -114,7 +114,7 @@
 #'
 #' (MODELO NUEVO)
 #'
-#' @format Un data frame con 101 filas y 2 variables:
+#' @format Un data frame con 102 filas y 2 variables:
 #' \describe{
 #'   \item{id_meta_agrupacion}{id numérico generado}
 #'   \item{nombre_meta_agrupacion}{Nombre del partido}
@@ -127,7 +127,7 @@
 #' Un dataset conteniendo el detalle de todas las agrupaciones de esta elección,
 #' deriva de descripcion_postulaciones.dsv
 #'
-#' @format Un data frame con 182 filas y 2 variables:
+#' @format Un data frame con 183 filas y 2 variables:
 #' \describe{
 #'   \item{id_agrupacion}{id numérico generado}
 #'   \item{id_meta_agrupacion}{id a la meta agrupación o partido}
@@ -162,7 +162,7 @@
 #'
 #' (MODELO NUEVO)
 #'
-#' @format Un data frame con 1442 filas y 6 variables:
+#' @format Un data frame con 1443 filas y 6 variables:
 #' \describe{
 #'   \item{id_lista}{id numérico generado}
 #'   \item{id_agrupación}{id a la agrupación de la lista}
@@ -236,7 +236,7 @@
 #' Un dataset conteniendo el detalle de los votos totales,
 #' deriva de mesas_totales_lista.dsv
 #'
-#' @format Un data frame con 3,665,201 filas y 5 variables:
+#' @format Un data frame con 4,021,306 filas y 5 variables:
 #' \describe{
 #'   \item{id_voto}{un id numérico generado para el conteo de votos}
 #'   \item{id_mesa}{id de la mesa}

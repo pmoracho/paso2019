@@ -4,7 +4,7 @@
 \name{listas}
 \alias{listas}
 \title{Listas a las que se votó}
-\format{Un data frame con 1442 filas y 6 variables:
+\format{Un data frame con 1443 filas y 6 variables:
 \describe{
   \item{id_lista}{id numérico generado}
   \item{id_agrupación}{id a la agrupación de la lista}

@@ -4,7 +4,7 @@
 \name{meta_agrupaciones}
 \alias{meta_agrupaciones}
 \title{meta_agrupaciones}
-\format{Un data frame con 101 filas y 2 variables:
+\format{Un data frame con 102 filas y 2 variables:
 \describe{
   \item{id_meta_agrupacion}{id numérico generado}
   \item{nombre_meta_agrupacion}{Nombre del partido}

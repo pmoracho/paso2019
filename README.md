@@ -38,17 +38,17 @@ Requerimiento de memoria total: **512.7 Mb**
 
 Son tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
 
-* agrupaciones (13.8 kb)
-* categorias (49.4 kb)
-* circuitos (741.5 Kb)
-* distritos (4.3 kb)
-* listas (261.3 kb)
-* mesas (8.8 mb)
-* meta_agrupaciones (10 kb)
-* secciones (67.7 kb)
-* votos (83.9 MB)
+* agrupaciones (9.9 kb)
+* categorias (37.7 kb)
+* circuitos (473.3 Kb)
+* distritos (2.6 kb)
+* listas (202.6 kb)
+* mesas (6.1 mb)
+* meta_agrupaciones (7.2 kb)
+* secciones (40.3 kb)
+* votos (107.4 MB)
 
-Requerimiento de memoria total: **94.5 Mb**
+Requerimiento de memoria total: **114.3 Mb**
 
 Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para cada tabla, y así reducir los requerimientos de memoria. Claro, que las consultas requieren ir agregando varias relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
 
@@ -67,20 +67,21 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
       select(nombre_meta_agrupacion, votos, porcentaje ) %>% 
       arrange(-votos)
       
-    # A tibble: 10 x 3
-    # Groups:   nombre_agrupacion [10]
-       nombre_agrupacion                                 votos porcentaje
+    # A tibble: 11 x 3
+    # Groups:   nombre_meta_agrupacion [11]
+       nombre_meta_agrupacion                            votos porcentaje
        <chr>                                             <dbl>      <dbl>
-     1 FRENTE DE TODOS                                11622428    0.492  
-     2 JUNTOS POR EL CAMBIO                            7825208    0.331  
-     3 CONSENSO FEDERAL                                2007035    0.0849 
-     4 FRENTE DE IZQUIERDA Y DE TRABAJADORES - UNIDAD   697776    0.0295 
-     5 FRENTE NOS                                       642662    0.0272 
-     6 UNITE POR LA LIBERTAD Y LA DIGNIDAD              533100    0.0226 
-     7 MOVIMIENTO AL SOCIALISMO                         173585    0.00735
-     8 FRENTE PATRIOTA                                   58575    0.00248
-     9 MOVIMIENTO DE ACCION VECINAL                      36324    0.00154
-    10 PARTIDO AUTONOMISTA                               32562    0.00138
+     1 FRENTE DE TODOS                                11622428    0.477  
+     2 JUNTOS POR EL CAMBIO                            7825208    0.321  
+     3 CONSENSO FEDERAL                                2007035    0.0823 
+     4 VOTOS en BLANCO                                  758988    0.0311 
+     5 FRENTE DE IZQUIERDA Y DE TRABAJADORES - UNIDAD   697776    0.0286 
+     6 FRENTE NOS                                       642662    0.0264 
+     7 UNITE POR LA LIBERTAD Y LA DIGNIDAD              533100    0.0219 
+     8 MOVIMIENTO AL SOCIALISMO                         173585    0.00712
+     9 FRENTE PATRIOTA                                   58575    0.00240
+    10 MOVIMIENTO DE ACCION VECINAL                      36324    0.00149
+    11 PARTIDO AUTONOMISTA                               32562    0.00134
 
 
 ### Funciones
@@ -101,3 +102,6 @@ una vez instalada este paquete, simplemente podremos instalar `paso2019` directa
 
 Ninguno en particular, salvo `devtools` para poder instalar este paquete, son datos, y eventualmente alguna que otra función que en principio intentaré que no requiera ningún paquete extra. 
 
+## Actualizaciones
+
+* 2019/08/22 - Incorporamos los votos en blanco
