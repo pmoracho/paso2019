@@ -24,13 +24,13 @@ Hay algunas inconsistencias en los datos que en algún momento puede llamar la a
 
 El modelo original representa las tablas originales distribuidas por la justicia electoral, tal cual se pueden acceder desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin ninguna transformación, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son numéricas. Estas tablas no mutaran en el futuro. 
 
-* descripcion_postulaciones (355.9 Kb)
-* descripcion_regiones (798.1 kb)
-* mesas_totales (98.4 mb)
-* mesas_totales_lista (230.4 mb)
-* mesas_totales_agrp_politica (182.9 mb)
+* descripcion_postulaciones (247 Kb)
+* descripcion_regiones (497.7 kb)
+* mesas_totales (56.6 mb)
+* mesas_totales_lista (130 mb)
+* mesas_totales_agrp_politica (104.9 mb)
 
-Requerimiento de memoria total: **512.7 Mb**
+Requerimiento de memoria total: **406.4Mb**
 
 #### Modelo nuevo
 
@@ -38,7 +38,7 @@ Requerimiento de memoria total: **512.7 Mb**
 
 Son tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
 
-* agrupaciones (9.9 kb)
+* agrupaciones (2.6 kb)
 * categorias (37.7 kb)
 * circuitos (473.3 Kb)
 * distritos (2.6 kb)
@@ -48,7 +48,7 @@ Son tablas derivadas de las anteriores. La idea es transformar los datos en tabl
 * secciones (40.3 kb)
 * votos (107.4 MB)
 
-Requerimiento de memoria total: **114.3 Mb**
+Requerimiento de memoria total: **114.2 Mb**
 
 Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para cada tabla, y así reducir los requerimientos de memoria. Claro, que las consultas requieren ir agregando varias relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
 
