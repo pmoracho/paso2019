@@ -91,7 +91,8 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
 
 ### Funciones
 
-* **get_telegrama_url**: Para generar la url de la imagen digitalizada del telegrama
+* **get_telegrama_url()**: Para generar la url de la imagen digitalizada del telegrama
+* **view_telegrama()**: Para ver la imagen del telegrama
 
 ## Instalación
 
@@ -109,4 +110,5 @@ Ninguno en particular, salvo `devtools` para poder instalar este paquete, son da
 
 ## Actualizaciones
 
+* 2019/09/28 - Incorporamos view_telegrama()
 * 2019/08/22 - Incorporamos los votos en blanco
