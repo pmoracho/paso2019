@@ -1,33 +1,32 @@
 <!-- badges: start -->
   [![Travis build status](https://travis-ci.org/pmoracho/paso2019.svg?branch=master)](https://travis-ci.org/pmoracho/paso2019)
-  [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
-  [![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://GitHub.com/Naereen/StrapDown.js/commit/)
-  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
-  [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)
-  [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama)
+  [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/pmoracho/paso2019/blob/master/LICENSE)
+  [![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://github.com/pmoracho/paso2019/commits)
+  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/pmoracho/paso2019/graphs/commit-activity)
+  [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/pmoracho/paso2019/releases)
   <!-- badges: end -->
 
 # paso2019
 
-Paquete de datos con los resultados del escrutinio de las "Paso 2019" de Argentina, tal cual publica la **Dirección Nacional Electoral (DINE)**.
+Paquete de datos con los resultados del escrutinio de las "Paso 2019" de Argentina, tal cual como los publica la **[Dirección Nacional Electoral (DINE)](https://www.argentina.gob.ar/interior/dine)**.
 
 ## Contenido
 
 ### Datos
 
-Los datos están actualizados al `12/08/2019 05:03:06 (-03:00 UTC)` según informa la **DINE**
+Los datos están actualizados al `12/08/2019 05:03:06 (-03:00 UTC)` según informa la **DINE**.
 
 **Importante**:
 
-Hay algunas inconsistencias en los datos que en algún momento puede llamar la atención. Por empezar hay una inconsistencia entre las tres tablas de mesas descargadas del sitio oficial de los resultados:
+Hay algunas inconsistencias en los datos, que en algún momento puede llamar la atención. Por empezar hay una inconsistencia entre las tres tablas de mesas descargadas del sitio oficial de los resultados:
 
-* Dentro de las tablas originales, pudimos constatar, que `mesas_totales` tiene 100,142  mesas, 6 mesas menos que el resto de las tablas (`mesas_totales_lista` y `mesas_totales_agrp_politica`), esto no tiene mucho impacto, por que en el modelo de datos nuevo, usamos `mesas_totales_lista` para armar prácticamente todos los datos.
+* Dentro de las tablas originales, pudimos constatar, que `mesas_totales` tiene 100,142  mesas, 6 mesas menos que el resto de las tablas (`mesas_totales_lista` y `mesas_totales_agrp_politica`), esto no tiene mucho impacto, por que en el modelo de datos nuevo, usamos `mesas_totales_lista` para armar prácticamente toda la información.
 
-* La otra inconsistencia notable, es entre esta información y la que se publica en la página web: https://resultados.gob.ar/, la mesas escrutadas según esta página son 100,156 mesas, los datos descargados, indican en el mejor de los casos 100,148 mesas, es decir 8 mesas menos.
+* La otra inconsistencia notable, es entre, ésta información y la que se publica en la página web: https://resultados.gob.ar/, la mesas escrutadas según esta página son 100,156 mesas, los datos descargados, indican en el mejor de los casos 100,148 mesas, es decir 8 mesas menos.
 
 #### Modelo original
 
-El modelo original representa las tablas originales distribuidas por la justicia electoral, tal cual se pueden acceder desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin ninguna transformación, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son numéricas. Estas tablas no mutaran en el futuro. 
+El modelo original representa las tablas originales distribuidas por la justicia electoral, tal cual se pueden acceder desde: http://descargaresultados.s3-sa-east-1.amazonaws.com/resultados.zip. Los archivos (de tipo DSV), fueron importados sin ninguna transformación importante, son `data.frames` básicos, la mayoría de las columnas son `character`, salvo las que representan cantidades de votos que son numéricas.
 
 * descripcion_postulaciones (247 Kb)
 * descripcion_regiones (497.7 kb)
@@ -41,7 +40,7 @@ Requerimiento de memoria total: **406.4Mb**
 
 ![Modelo nuevo](doc/img/modelo_paso2019.png)
 
-Son tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación. Usarlas con esta información en mente.
+Son tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación, eventualmente podrá cambiar algo.
 
 * agrupaciones (2.6 kb)
 * categorias (37.7 kb)
@@ -87,6 +86,7 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
      9 FRENTE PATRIOTA                                   58575    0.00240
     10 MOVIMIENTO DE ACCION VECINAL                      36324    0.00149
     11 PARTIDO AUTONOMISTA                               32562    0.00134
+
 
 
 ### Funciones
