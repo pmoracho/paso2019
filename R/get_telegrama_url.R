@@ -10,8 +10,6 @@
 #' library("paso2019")
 #'
 #' get_telegrama_url("0100100001X")
-#' get_telegrama_url(codigo_mesa = "0100100001X",
-#'                             base_url = "https://www.una_pagina.com")
 #'
 get_telegrama_url <- function(codigo_mesa,
                               base_url = "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages"
