@@ -5,7 +5,7 @@ controlar_mesa <- function(codigo_mesa) {
 
   votos %>%
     left_join(mesas, by = "id_mesa") %>%
-    filter(codigo_mesa == codigo_mesa) %>%
+    filter(codigo_mesa == !!codigo_mesa) %>%
     left_join(circuitos, by = "id_circuito") %>%
     left_join(secciones, by = "id_seccion") %>%
     left_join(distritos, by = "id_distrito") %>%

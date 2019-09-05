@@ -14,11 +14,40 @@ Los datos están actualizados al `12/08/2019 05:03:06 (-03:00 UTC)` según infor
 
 **Importante**:
 
-Hay algunas inconsistencias en los datos, que en algún momento puede llamar la atención. Por empezar hay una inconsistencia entre las tres tablas de mesas descargadas del sitio oficial de los resultados:
+Hay algunas inconsistencias en los datos, que en algún momento puede llamar la atención. Por empezar hay una diferencia entre las tres tablas de mesas descargadas del sitio oficial de los resultados:
 
 * Dentro de las tablas originales, pudimos constatar, que `mesas_totales` tiene 100,142  mesas, 6 mesas menos que el resto de las tablas (`mesas_totales_lista` y `mesas_totales_agrp_politica`), esto no tiene mucho impacto, por que en el modelo de datos nuevo, usamos `mesas_totales_lista` para armar prácticamente toda la información.
 
 * La otra inconsistencia notable, es entre, ésta información y la que se publica en la página web: https://resultados.gob.ar/, la mesas escrutadas según esta página son 100,156 mesas, los datos descargados, indican en el mejor de los casos 100,148 mesas, es decir 8 mesas menos.
+
+### Establecimientos
+
+Los datos de los locales o establecimientos de votación no forman parte de los archivos compartidos por el sitio. Estos datos se construyeron por un trabajo de "scrapping" del sitio web, por lo que hay que tomarlos con cuidado. En principio, no han quedado mesas sin relacionar a un establecimiento, y un muestreo aleatorio da resultados consistentes. Para controlar todos los datos de una mesa en particular, se puede hacer:
+
+    library("tidyverse")
+    library("paso2019")
+  
+    votos %>%
+      left_join(mesas, by = "id_mesa") %>%
+      filter(codigo_mesa == "2102208133X") %>%
+      left_join(circuitos, by = "id_circuito") %>%
+      left_join(secciones, by = "id_seccion") %>%
+      left_join(distritos, by = "id_distrito") %>%
+      left_join(listas, by = "id_lista") %>%
+      left_join(agrupaciones, by = "id_agrupacion") %>%
+      left_join(meta_agrupaciones, by = "id_meta_agrupacion") %>%
+      left_join(categorias, by = "id_categoria") %>%
+      left_join(establecimientos, by = "id_establecimiento") %>%
+      select(nombre_distrito,
+             nombre_seccion,
+             nombre_circuito,
+             nombre_establecimiento,
+             codigo_mesa,
+             nombre_categoria,
+             nombre_meta_agrupacion,
+             votos) %>%
+      View()
+
 
 #### Modelo original
 
@@ -107,5 +136,6 @@ Ninguno en particular, salvo `devtools` para poder instalar este paquete, son da
 
 ## Actualizaciones
 
-* 2019/09/28 - Incorporamos view_telegrama()
+* 2019/10/05 - Versión `0.2.0` incorporamos `establecimientos`
+* 2019/08/28 - Incorporamos view_telegrama()
 * 2019/08/22 - Incorporamos los votos en blanco
