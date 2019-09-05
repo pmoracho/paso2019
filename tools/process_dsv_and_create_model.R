@@ -206,6 +206,12 @@ process_dsv_and_create_model <- function() {
   usethis::use_data(circuitos, overwrite = TRUE)
   usethis::use_data(establecimientos, overwrite = TRUE)
 
+  usethis::use_data(descripcion_postulaciones, overwrite = TRUE)
+  usethis::use_data(descripcion_regiones, overwrite = TRUE)
+  usethis::use_data(mesas_totales, overwrite = TRUE)
+  usethis::use_data(mesas_totales_lista, overwrite = TRUE)
+  usethis::use_data(mesas_totales_agrp_politica, overwrite = TRUE)
+
   # glimpse(meta_agrupaciones)
   # glimpse(agrupaciones)
   # glimpse(categorias)
