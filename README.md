@@ -1,9 +1,5 @@
 <!-- badges: start -->
   [![Travis build status](https://travis-ci.org/pmoracho/paso2019.svg?branch=master)](https://travis-ci.org/pmoracho/paso2019)
-  [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/pmoracho/paso2019/blob/master/LICENSE)
-  [![GitHub commits](https://img.shields.io/github/commits-since/Naereen/StrapDown.js/v1.0.0.svg)](https://github.com/pmoracho/paso2019/commits)
-  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/pmoracho/paso2019/graphs/commit-activity)
-  [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/pmoracho/paso2019/releases)
   <!-- badges: end -->
 
 # paso2019
@@ -42,15 +38,16 @@ Requerimiento de memoria total: **406.4Mb**
 
 Son tablas derivadas de las anteriores. La idea es transformar los datos en tablas que respeten mejor un modelo relacional. Estas tablas están en pleno procesos de creación y modificación, eventualmente podrá cambiar algo.
 
-* agrupaciones (2.6 kb)
-* categorias (37.7 kb)
-* circuitos (473.3 Kb)
-* distritos (2.6 kb)
-* listas (202.6 kb)
-* mesas (6.1 mb)
-* meta_agrupaciones (7.2 kb)
-* secciones (40.3 kb)
+* agrupaciones (15.3 kb)
+* categorias (49.4 kb)
+* circuitos (741.5 Kb)
+* distritos (4.3 kb)
+* listas (272.7 kb)
+* mesas (9.3 mb)
+* meta_agrupaciones (10.4 kb)
+* secciones (67.7 kb)
 * votos (107.4 MB)
+* establecimientos (2.3 MB)
 
 Requerimiento de memoria total: **114.2 Mb**
 
@@ -89,7 +86,7 @@ Este modelo elimina mucha de la redundancia de datos de los archivos originales,
 
 
 
-### Funciones
+### Funciones públicas
 
 * **get_telegrama_url()**: Para generar la url de la imagen digitalizada del telegrama
 * **view_telegrama()**: Para ver la imagen del telegrama

@@ -177,12 +177,13 @@
 #' Un dataset conteniendo el detalle de todas las mesas de votación de esta elección,
 #' deriva de mesas_totales_lista.dsv
 #'
-#' @format Un data frame con 100,148 filas y 2 variables:
+#' @format Un data frame con 103,134 filas y 7 variables:
 #' \describe{
 #'   \item{id_mesa}{id numérico generado}
 #'   \item{id_distrito}{id del distrito de la mesa (provincia)}
 #'   \item{id_seccion}{id del la sección electoral}
 #'   \item{id_circuito}{id del circuito}
+#'   \item{id_establecimiento}{id del establecimiento}
 #'   \item{codigo_mesa}{código de la mesa tal como parece en los datos originales}
 #'   \item{escrutada}{la mesa fue escrutada}
 #' }
@@ -246,3 +247,37 @@
 #' }
 #'
 "votos"
+
+#' scrap_establecimientos_mesas
+#'
+#' Datos de establecimientos o locales de votación  y mesas. Esta información
+#' se capturó leyendo directamente los archivos JSON de datos que maneja la
+#' aplicación web.
+#'
+#' @format Un data frame con 101,457 filas y 4 variables:
+#' \describe{
+#'   \item{codigo_establecimiento}{El código del establecimiento}
+#'   \item{codigo_circuito}{código del circuito del establecimiento}
+#'   \item{nombre_establecimiento}{Nombre del establecimiento}
+#'   \item{codigo_mesa}{código de la mesa tal como parece en los datos originales}
+#' }
+#'
+"scrap_establecimientos_mesas"
+
+#' establecimientos
+#'
+#' Datos de establecimientos o locales de votación procesados a partir del
+#' dataset scrap_establecimientos_mesas.
+#'
+#' @format Un data frame con 15,226 filas y 6 variables:
+#' \describe{
+#'   \item{id_establecimiento}{id del establecimiento}
+#'   \item{codigo_establecimiento}{El código del establecimiento}
+#'   \item{nombre_establecimiento}{Nombre del establecimiento}
+#'   \item{codigo_mesa}{código de la mesa tal como parece en los datos originales}
+#'   \item{id_circuito}{id del circuito}
+#'   \item{id_seccion}{id de la sección}
+#'   \item{id_distrito}{id del distrito}
+#' }
+#'
+"establecimientos"

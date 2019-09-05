@@ -14,13 +14,16 @@
 view_telegrama <- function(codigo_mesa,
                            base_url = "https://www.resultados2019.gob.ar/opt/jboss/rct/tally/pages"
 ) {
+
   imgfile <- paste0(base_url, "/", codigo_mesa, "/1.png")
   destfile <- tempfile(pattern = codigo_mesa,
                        fileext = ".png",
                        tmpdir = tempdir())
-  download.file(url = imgfile,
-                destfile = destfile,
-                mode = "wb")
-  browseURL(destfile)
+
+  utils::download.file(url = imgfile,
+                       destfile = destfile,
+                       mode = "wb")
+
+  utils::browseURL(destfile)
   destfile
 }

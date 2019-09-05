@@ -70,14 +70,16 @@ process_establecimientos <- function() {
     select(cc, codigo_circuito, n, chd) %>%
     setNames(c("codigo_establecimiento", "codigo_circuito", "nombre_establecimiento", "mesa_id_interno")) %>%
     left_join(df2, by=c("mesa_id_interno" = "c")) %>%
-    select(codigo_establecimiento, codigo_circuito, nombre_establecimiento, codigo_mesa =cc) -> scrap_establecimientos
+    select(codigo_establecimiento, codigo_circuito, nombre_establecimiento, codigo_mesa =cc) %>%
+    as.data.frame() -> scrap_establecimientos_mesas
+
 
   # Establecimientos sin mesas
   mesas %>%
     inner_join(circuitos, by = "id_circuito") %>%
     inner_join(secciones, by = "id_seccion") %>%
     inner_join(distritos, by = "id_distrito") %>%
-    inner_join(  scrap_establecimientos %>%
+    inner_join(  scrap_establecimientos_mesas %>%
                    filter(is.na(codigo_mesa)) %>%
                    distinct(), by = "codigo_circuito") %>%
     select(codigo_establecimiento, nombre_establecimiento,
@@ -160,10 +162,10 @@ process_establecimientos <- function() {
 ", header=TRUE, stringsAsFactor=FALSE)
 
   for (e in unique(manuales$codigo_establecimiento)) {
-    scrap_establecimientos$codigo_mesa[scrap_establecimientos$codigo_establecimiento == e] <- manuales$codigo_mesa[manuales$codigo_establecimiento == e]
+    scrap_establecimientos_mesas$codigo_mesa[scrap_establecimientos_mesas$codigo_establecimiento == e] <- manuales$codigo_mesa[manuales$codigo_establecimiento == e]
   }
   usethis::use_data(scrap_establecimientos_mesas, overwrite = TRUE)
 
-  glimpse(scrap_establecimientos)
+  glimpse(scrap_establecimientos_mesas)
 
 }

@@ -174,18 +174,19 @@ process_dsv_and_create_model <- function() {
     as.data.frame() -> categorias
 
   # establecimientos
-  scrap_establecimientos %>%
+  scrap_establecimientos_mesas %>%
     left_join(circuitos, by = "codigo_circuito") %>%
     left_join(mesas, by = "codigo_mesa") %>%
     distinct(codigo_establecimiento, nombre_establecimiento,
              id_circuito.x, id_seccion, id_distrito) %>%
     mutate(id_establecimiento = row_number()) %>%
     select(id_establecimiento, codigo_establecimiento, nombre_establecimiento,
-           id_circuito = id_circuito.x, id_seccion, id_distrito) -> establecimientos
+           id_circuito = id_circuito.x, id_seccion, id_distrito) %>%
+  as.data.frame() -> establecimientos
 
   # rehacemos mesas para agregar el id del establecimiento
   mesas %>%
-    left_join(scrap_establecimientos, by = "codigo_mesa") %>%
+    left_join(scrap_establecimientos_mesas, by = "codigo_mesa") %>%
     left_join(establecimientos, by = "codigo_establecimiento") %>%
     select(id_mesa,
            id_distrito = id_distrito.x,
@@ -211,6 +212,7 @@ process_dsv_and_create_model <- function() {
   usethis::use_data(mesas_totales, overwrite = TRUE)
   usethis::use_data(mesas_totales_lista, overwrite = TRUE)
   usethis::use_data(mesas_totales_agrp_politica, overwrite = TRUE)
+  usethis::use_data(scrap_establecimientos_mesas, overwrite = TRUE)
 
   # glimpse(meta_agrupaciones)
   # glimpse(agrupaciones)
