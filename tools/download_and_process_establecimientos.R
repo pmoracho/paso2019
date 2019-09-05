@@ -9,20 +9,21 @@ download_establecimientos <- function() {
     p1 <- substr(num, nchar(num)-2,nchar(num))
     p2 <- substr(num, 1 ,nchar(num)-3)
 
-    # file <-  paste0(base_url,
-    #                 "/sites/",
-    #                 p2,
-    #                 '/r',
-    #                 num,
-    #                 '.json')
-    # destfile <- paste0("tools/", "r",num,".json")
-    # tryCatch({
-    #     download.file(file, mode="w", destfile = destfile, quiet=TRUE)
-    #     print(paste(file, "OK"))
-    # },
-    # error = function(e) {
-    #     print(paste(file, "No descargado"))
-    # })
+    file <-  paste0(base_url,
+                    "/sites/",
+                    p2,
+                    '/r',
+                    num,
+                    '.json')
+    destfile <- paste0("tools/", "r",num,".json")
+    tryCatch({
+        download.file(file, mode="w", destfile = destfile, quiet=TRUE)
+        print(paste(file, "OK"))
+    },
+    error = function(e) {
+        print(paste(file, "No descargado"))
+    })
+
     file <-  paste0(base_url,
                     "/precincts/",
                     p2,
@@ -45,6 +46,7 @@ process_establecimientos <- function() {
   library(jsonlite)
   library(tidyverse)
   library(purrr)
+  library(paso2019)
 
   data_frame(filename = list.files("tools/", pattern="r.*\\.json")) %>%
     mutate(file_contents = map(filename,
@@ -160,7 +162,8 @@ process_establecimientos <- function() {
   for (e in unique(manuales$codigo_establecimiento)) {
     scrap_establecimientos$codigo_mesa[scrap_establecimientos$codigo_establecimiento == e] <- manuales$codigo_mesa[manuales$codigo_establecimiento == e]
   }
+  usethis::use_data(scrap_establecimientos_mesas, overwrite = TRUE)
 
-  usethis::use_data(scrap_establecimientos, overwrite = TRUE)
+  glimpse(scrap_establecimientos)
 
 }

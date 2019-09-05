@@ -131,7 +131,6 @@ process_dsv_and_create_model <- function() {
   # Votos en blanco
   mesas_totales %>%
     filter(CONTADOR == "VB") %>%
-    rename("VOTOS_LISTA" = VALOR) %>%
     mutate(NOMBRE_AGRUPACION = "EN BLANCO") %>%
     left_join(categorias, by=c("CODIGO_CATEGORIA" = "codigo_categoria")) %>%
     left_join(listas, by=c("CONTADOR" = "codigo_lista")) %>%
@@ -141,7 +140,8 @@ process_dsv_and_create_model <- function() {
            id_mesa,
            id_categoria,
            id_lista,
-           votos = VOTOS_LISTA) -> votos_vb
+           votos = VALOR) -> votos_vb
+
 
   votos %>%
     bind_rows(votos_vb) -> votos
@@ -173,6 +173,28 @@ process_dsv_and_create_model <- function() {
            votos_totales = votos)  %>%
     as.data.frame() -> categorias
 
+  # establecimientos
+  scrap_establecimientos %>%
+    left_join(circuitos, by = "codigo_circuito") %>%
+    left_join(mesas, by = "codigo_mesa") %>%
+    distinct(codigo_establecimiento, nombre_establecimiento,
+             id_circuito.x, id_seccion, id_distrito) %>%
+    mutate(id_establecimiento = row_number()) %>%
+    select(id_establecimiento, codigo_establecimiento, nombre_establecimiento,
+           id_circuito = id_circuito.x, id_seccion, id_distrito) -> establecimientos
+
+  # rehacemos mesas para agregar el id del establecimiento
+  mesas %>%
+    left_join(scrap_establecimientos, by = "codigo_mesa") %>%
+    left_join(establecimientos, by = "codigo_establecimiento") %>%
+    select(id_mesa,
+           id_distrito = id_distrito.x,
+           id_seccion = id_seccion.x,
+           id_circuito = id_circuito.x,
+           id_establecimiento,
+           codigo_mesa,
+           escrutada) -> mesas
+
   usethis::use_data(meta_agrupaciones, overwrite = TRUE)
   usethis::use_data(agrupaciones, overwrite = TRUE)
   usethis::use_data(categorias, overwrite = TRUE)
@@ -182,6 +204,7 @@ process_dsv_and_create_model <- function() {
   usethis::use_data(distritos, overwrite = TRUE)
   usethis::use_data(secciones, overwrite = TRUE)
   usethis::use_data(circuitos, overwrite = TRUE)
+  usethis::use_data(establecimientos, overwrite = TRUE)
 
   # glimpse(meta_agrupaciones)
   # glimpse(agrupaciones)
@@ -192,5 +215,6 @@ process_dsv_and_create_model <- function() {
   # glimpse(distritos)
   # glimpse(secciones)
   # glimpse(circuitos)
+  # glimpse(establecimientos)
 
 }
