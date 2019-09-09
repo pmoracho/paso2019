@@ -1,9 +1,13 @@
-#' Descarga y procesa la informacio ón de los establecimientos
+#' Descarga y procesa la información de los establecimientos
+#' directamente desde la web https://resultados.gob.ar/
 #'
 download_establecimientos <- function() {
 
+  # A lo bruto, intentamos descargar todos los archivos json
+  # el número de estos lo desconocemos así que intentamos de
+  # 1 a 15.000 (ajustar cuando sepamos cuantos son)
   base_url <- 'https://www.resultados2019.gob.ar/assets/data'
-  for (i in 12786:15000) {
+  for (i in 1:15000) {
     num <- as.character(i)
     num <- paste0(ifelse(nchar(num) < 4, "0", ""), num)
     p1 <- substr(num, nchar(num)-2,nchar(num))
@@ -41,6 +45,9 @@ download_establecimientos <- function() {
   }
 }
 
+#' Cuando tenemos todos los Json descargados, los leemos y
+#' procesamos para generar las tablas finales que vamos a necesitar
+#'
 process_establecimientos <- function() {
 
   library(jsonlite)
@@ -75,17 +82,21 @@ process_establecimientos <- function() {
 
 
   # Establecimientos sin mesas
-  mesas %>%
-    inner_join(circuitos, by = "id_circuito") %>%
-    inner_join(secciones, by = "id_seccion") %>%
-    inner_join(distritos, by = "id_distrito") %>%
-    inner_join(  scrap_establecimientos_mesas %>%
-                   filter(is.na(codigo_mesa)) %>%
-                   distinct(), by = "codigo_circuito") %>%
-    select(codigo_establecimiento, nombre_establecimiento,
-           nombre_distrito, nombre_seccion, nombre_circuito) %>%
-    distinct()
+  # ¿Funcionó todo bien? no debería haber mesas sin establecimientos
+  # Esto requiere tener el resto de los datos cargados
+  # mesas %>%
+  #   inner_join(circuitos, by = "id_circuito") %>%
+  #   inner_join(secciones, by = "id_seccion") %>%
+  #   inner_join(distritos, by = "id_distrito") %>%
+  #   inner_join(  scrap_establecimientos_mesas %>%
+  #                  filter(is.na(codigo_mesa)) %>%
+  #                  distinct(), by = "codigo_circuito") %>%
+  #   select(codigo_establecimiento, nombre_establecimiento,
+  #          nombre_distrito, nombre_seccion, nombre_circuito) %>%
+  #   distinct()
 
+  # Hay mesas (por suerte pocas) que no pudimos capturar con el proceso anterior
+  # entonces entramos una por una en la web y obtuvimos los datos
   manuales <- read.table(text = "codigo_establecimiento codigo_mesa
   020500003645318 0205000024X
   020500003645318 0205000025X
