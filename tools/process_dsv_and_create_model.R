@@ -114,7 +114,6 @@ process_dsv_and_create_model <- function() {
            id_circuito,
            codigo_mesa = CODIGO_MESA)  -> mesas
 
-
   # votos
   mesas_totales_lista %>%
     distinct(CODIGO_MESA, CODIGO_CATEGORIA, CODIGO_LISTA, VOTOS_LISTA) %>%
@@ -161,7 +160,6 @@ process_dsv_and_create_model <- function() {
            codigo_mesa,
            escrutada) -> mesas
 
-
   # Totales de votos por categoria
   votos %>%
     group_by(id_categoria) %>%
@@ -175,18 +173,22 @@ process_dsv_and_create_model <- function() {
 
   # establecimientos
   scrap_establecimientos_mesas %>%
+    distinct(codigo_establecimiento,codigo_circuito,nombre_establecimiento,codigo_mesa) %>%
     left_join(circuitos, by = "codigo_circuito") %>%
-    left_join(mesas, by = "codigo_mesa") %>%
+    inner_join(mesas, by = "codigo_mesa") %>%
     distinct(codigo_establecimiento, nombre_establecimiento,
              id_circuito.x, id_seccion, id_distrito) %>%
     mutate(id_establecimiento = row_number()) %>%
     select(id_establecimiento, codigo_establecimiento, nombre_establecimiento,
            id_circuito = id_circuito.x, id_seccion, id_distrito) %>%
-  as.data.frame() -> establecimientos
+    as.data.frame() -> establecimientos
 
   # rehacemos mesas para agregar el id del establecimiento
   mesas %>%
-    left_join(scrap_establecimientos_mesas, by = "codigo_mesa") %>%
+    left_join(
+      scrap_establecimientos_mesas %>%
+        distinct(codigo_establecimiento,codigo_circuito,nombre_establecimiento,codigo_mesa),
+      by = "codigo_mesa") %>%
     left_join(establecimientos, by = "codigo_establecimiento") %>%
     select(id_mesa,
            id_distrito = id_distrito.x,

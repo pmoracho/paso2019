@@ -2,9 +2,8 @@
 
 
 modelo_original <- c("paso2019::descripcion_postulaciones", "paso2019::descripcion_regiones",
-                  "paso2019::mesas_totales", "paso2019::distritos", "paso2019::listas",
-                  "paso2019::mesas", "paso2019::mesas_totales_lista",
-                  "paso2019::mesas_totales_agrp_politica", "paso2019::scrap_establecimientos_mesas")
+                  "paso2019::mesas_totales", "paso2019::mesas_totales_lista",
+                  "paso2019::mesas_totales_agrp_politica")
 
 
 size = 0
@@ -22,7 +21,8 @@ message("Requerimiento de memoria del modelo original: ", appendLF = F); print(s
 modelo_nuevo <- c("paso2019::agrupaciones", "paso2019::categorias",
                   "paso2019::circuitos", "paso2019::distritos", "paso2019::listas",
                   "paso2019::mesas", "paso2019::meta_agrupaciones",
-                  "paso2019::secciones", "paso2019::votos", "paso2019::establecimientos")
+                  "paso2019::secciones", "paso2019::votos", "paso2019::establecimientos",
+                  "paso2019::scrap_establecimientos_mesas")
 
 
 size = 0

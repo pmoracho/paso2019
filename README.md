@@ -59,11 +59,7 @@ El modelo original representa las tablas originales distribuidas por la justicia
 * `mesas_totales_lista` (230.4 mb)
 * `mesas_totales_agrp_politica` (182.9 mb)
 
-Otros
-
-* `scrap_establecimientos_mesas` (533.8 mb)
-
-Requerimiento de memoria total: **406.4Mb**
+Requerimiento de memoria total: **512.7Mb**
 
 #### Modelo nuevo
 
@@ -83,6 +79,11 @@ Son tablas derivadas de las anteriores. La idea es transformar los datos en tabl
 * `establecimientos` (2.3 MB)
 
 Requerimiento de memoria total: **120.1 Mb**
+
+Otros
+
+* `scrap_establecimientos_mesas` (11.5 mb)
+
 
 Este modelo elimina mucha de la redundancia de datos de los archivos originales, se generaron también `id's` numéricos para cada tabla, y así reducir los requerimientos de memoria. Claro, que las consultas requieren ir agregando varias relaciones. Por ejemplo, para consultar el total de votos de cada agrupación en la elección de presidente, habría que hacer algo así:
 
@@ -144,6 +145,7 @@ Ninguno en particular, salvo `devtools` para poder instalar este paquete, son da
 
 ## Actualizaciones
 
+* 2019/11/04 - Versión `0.3.1` Correción de mesas duplicadas
 * 2019/10/05 - Versión `0.2.0` incorporamos `establecimientos`
 * 2019/08/28 - Incorporamos view_telegrama()
 * 2019/08/22 - Incorporamos los votos en blanco
